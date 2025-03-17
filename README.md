@@ -5,7 +5,7 @@ Follow these steps to reproduce the Safari loop error:
 1. **Clone the repository:**
 
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/javialon26/react-router-oidc-safari
    ```
 
 2. **Install dependencies:**
