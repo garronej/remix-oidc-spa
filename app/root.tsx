@@ -5,8 +5,8 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData
 } from "react-router";
-import RemixOidcProvider from "./components/RemixOidcProvider";
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -41,11 +41,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+let OidcProvider: typeof import("./oidc.client").OidcProvider;
+
+export async function clientLoader() {
+  OidcProvider = (await import("./oidc.client")).OidcProvider
+}
+
+export function HydrateFallback() {
+  return <p>Loading OIDC...</p>;
+}
+
 export default function App() {
+  useLoaderData();
   return (
-    <RemixOidcProvider>
+    <OidcProvider fallback={<HydrateFallback />}>
       <Outlet />
-    </RemixOidcProvider>
+    </OidcProvider>
   );
 }
 

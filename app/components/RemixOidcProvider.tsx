@@ -10,9 +10,15 @@ export async function clientLoader() {
 
   const { isHandled } = handleOidcCallback();
 
+  alert("clientLoader");
+
   if (isHandled) {
+    console.log("handeled!!!!!!!!!!!!!");
     await new Promise<never>(() => {});
   }
+
+  return { now: Date.now() };
+
 }
 
 function Fallback() {
@@ -29,6 +35,8 @@ export default function RemixOidcProvider(props: {
   const { children } = props;
 
   useLoaderData();
+
+  console.log("Ici????");
 
   return (
     <Suspense fallback={<Fallback />}>
