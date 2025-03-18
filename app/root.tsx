@@ -6,12 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { Suspense, lazy, useEffect, useState } from "react";
-
-const OidcProvider = lazy(() =>
-  import("./oidc.client").then((mod) => ({ default: mod.OidcProvider }))
-);
-
+import RemixOidcProvider from "./components/RemixOidcProvider";
 import type { Route } from "./+types/root";
 import "./app.css";
 
@@ -47,32 +42,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const { handleOidcCallback } = await import(
-        "oidc-spa/handleOidcCallback"
-      );
-
-      const { isHandled } = handleOidcCallback();
-
-      if (!isHandled) {
-        setIsReady(true);
-      }
-    })();
-  }, []);
-
-  if (!isReady) {
-    return null;
-  }
-
   return (
-    <Suspense>
-      <OidcProvider fallback={<p>Loading OIDC...</p>}>
-        <Outlet />
-      </OidcProvider>
-    </Suspense>
+    <RemixOidcProvider>
+      <Outlet />
+    </RemixOidcProvider>
   );
 }
 
