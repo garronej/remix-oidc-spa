@@ -2548,10 +2548,10 @@ object-inspect@^1.13.3:
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.13.4.tgz#8375265e21bc20d0fa582c22e1b13485d6e00213"
   integrity sha512-W67iLl4J2EXEGTbfeHCffrjDfitvLANg0UlX3wFUUSTx92KXRFegMHUVgSqE+wvhAbi4WqjGg9czysTV2Epbew==
 
-oidc-spa@^6.9.12:
-  version "6.9.12"
-  resolved "https://registry.yarnpkg.com/oidc-spa/-/oidc-spa-6.9.12.tgz#7e55732315932d8486264d8f51d4af65606b3277"
-  integrity sha512-RP1mCfTbfVCGz6pct9C5AX593Z/Exl9h6nQooVcbBAcs283LoKAxgrK0euQ2WJJ4in31W0EI7TFTbLMyYYyxHA==
+oidc-spa@^6.9.13:
+  version "6.9.13"
+  resolved "https://registry.yarnpkg.com/oidc-spa/-/oidc-spa-6.9.13.tgz#1f8cf1ae0d2d6bbeba718abf90b881a90a917cc1"
+  integrity sha512-SunZdW9XY8H0gq/zvtcUuXay1IM1iiUmX+9vlLNQCmQpi4OyoYm/9qA950C8V6Qy6/AWR7TKY1Iu09Oakf84rA==
 
 on-finished@2.4.1:
   version "2.4.1"
